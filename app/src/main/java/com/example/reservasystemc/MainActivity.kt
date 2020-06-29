@@ -14,8 +14,9 @@ import com.example.reservasystemc.PreferenceHelper.get
 import com.example.reservasystemc.PreferenceHelper.set
 class MainActivity : AppCompatActivity() {
  //cuando se usa by lazy snackbar no tiene valor y cuando se quiera usar por primera vez hay recien se va a inicializar
+   
     private val snackBar by lazy {
-        Snackbar.make(mainLayout,R.string.press_back_again,Snackbar.LENGTH_SHORT)
+        Snackbar.make(mainLayout,R.string.press_back_again,Snackbar.LENGTH_LONG)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -65,9 +66,10 @@ class MainActivity : AppCompatActivity() {
 
     override fun onBackPressed() {
         if(snackBar.isShown)
-        snackBar.show()
+            super.onBackPressed()
         else
-        super.onBackPressed()
+            snackBar.show()
+
 
     }
 }
